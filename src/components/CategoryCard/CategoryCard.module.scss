@@ -1,0 +1,28 @@
+.categoryCard {
+  background: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 35px;
+  gap: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+
+  @media (max-width: 992px) {
+    width: calc(25% - 12px);
+  }
+
+  @media (max-width: 576px) {
+    width: calc(50% - 8px);
+  }
+}
+
+.icon {
+  font-size: 34px;
+}
+
+.title {
+  font-size: 14px;
+  color: $primary-color;
+  font-weight: 500;
+}
