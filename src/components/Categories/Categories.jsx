@@ -4,7 +4,7 @@ import { MdCleaningServices, MdOutlinePlumbing, MdOutlineElectricalServices } fr
 import { GiAutoRepair } from 'react-icons/gi';
 import { PiPaintBrushHouseholdFill } from 'react-icons/pi';
 import { FaTruckMoving } from 'react-icons/fa';
-import { Link, generatePath, useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 
 const Categories = () => {
