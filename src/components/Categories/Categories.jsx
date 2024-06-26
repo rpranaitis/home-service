@@ -4,7 +4,7 @@ import { MdCleaningServices, MdOutlinePlumbing, MdOutlineElectricalServices } fr
 import { GiAutoRepair } from 'react-icons/gi';
 import { PiPaintBrushHouseholdFill } from 'react-icons/pi';
 import { FaTruckMoving } from 'react-icons/fa';
-import { Link, generatePath } from 'react-router-dom';
+import { Link, generatePath, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 
 const Categories = () => {
@@ -41,12 +41,22 @@ const Categories = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const navigateToCategory = (category) => {
+    navigate(generatePath(ROUTES.SEARCH_CATEGORY, { category: category.toLowerCase() }));
+  };
+
   return (
     <div className={styles.container}>
       {categories.map((item, index) => (
-        <Link key={index} to={generatePath(ROUTES.SEARCH_CATEGORY, { category: item.title.toLowerCase() })}>
-          <CategoryCard icon={item.icon} iconColor={item.iconColor} title={item.title} />
-        </Link>
+        <CategoryCard
+          key={index}
+          onClick={() => navigateToCategory(item.title)}
+          icon={item.icon}
+          iconColor={item.iconColor}
+          title={item.title}
+        />
       ))}
     </div>
   );
