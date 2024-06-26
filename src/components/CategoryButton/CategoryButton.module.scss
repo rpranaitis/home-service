@@ -1,0 +1,27 @@
+.button {
+  background: white;
+  color: black;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgb(221, 221, 221);
+  padding: 10px 20px;
+  font-weight: 500;
+  width: 100%;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activeButton {
+  border: 1px solid $primary-color;
+  color: $primary-color;
+  background: #f9f5ff;
+}
+
+.icon {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
