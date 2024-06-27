@@ -48,8 +48,8 @@ const Topbar = () => {
       <div className={styles.rightSide}>
         {user ? (
           <div className={styles.rightSideWrapper}>
-            <Avatar>{user.email[0]}</Avatar>
-            <Button clean onClick={() => logout()}>
+            <Button onClick={() => logout()} style={{ padding: '10px 20px' }}>
+              <Avatar>{user.email[0]}</Avatar>
               Log out
             </Button>
           </div>
