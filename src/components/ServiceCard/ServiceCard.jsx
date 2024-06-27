@@ -1,15 +1,34 @@
 import CategoryBadge from '../CategoryBadge/CategoryBadge';
 import PropTypes from 'prop-types';
 import styles from './ServiceCard.module.scss';
-import { capitalizeFirstLetter } from '../../utils/strings';
 import Button from '../Button/Button';
+import { useLocalStorage } from 'usehooks-ts';
+import { capitalizeFirstLetter } from '../../utils/strings';
+import { GoHeart, GoHeartFill } from 'react-icons/go';
 
-const ServiceCard = ({ imageUrl, category, title, credentials, address }) => {
+const ServiceCard = ({ id, imageUrl, category, title, credentials, address }) => {
+  const [favorites, setFavorites, removeFavorites] = useLocalStorage('service-favorites', []);
+  const isFavorite = favorites.find((item) => item === id);
+  const toggleAddingToFavorites = () => {
+    setFavorites((oldFavorites) => {
+      if (isFavorite) {
+        return oldFavorites.filter((item) => item !== id);
+      } else {
+        return [...oldFavorites, id];
+      }
+    });
+  };
+
   return (
     <div className={styles.serviceCard}>
       <img src={imageUrl} alt={title} />
       <div className={styles.serviceDetailsWrapper}>
-        <CategoryBadge>{capitalizeFirstLetter(category)}</CategoryBadge>
+        <div className={styles.header}>
+          <CategoryBadge>{capitalizeFirstLetter(category)}</CategoryBadge>
+          <div onClick={toggleAddingToFavorites} className={styles.favorite}>
+            {isFavorite ? <GoHeartFill /> : <GoHeart />}
+          </div>
+        </div>
         <h2 className={styles.title}>{title}</h2>
         <span className={styles.personCredentials}>{credentials}</span>
         <span className={styles.address}>{address}</span>
@@ -20,6 +39,7 @@ const ServiceCard = ({ imageUrl, category, title, credentials, address }) => {
 };
 
 ServiceCard.protoTypes = {
+  id: PropTypes.number.isRequired,
   imageUrl: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

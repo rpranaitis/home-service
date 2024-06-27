@@ -40,9 +40,10 @@ const SearchCategory = () => {
         <span className={styles.serviceHeader}>{capitalizeFirstLetter(category)}</span>
         <div className={styles.servicesContainer}>
           {filteredServices.length > 0 ? (
-            filteredServices.map((item, index) => (
+            filteredServices.map((item) => (
               <ServiceCard
-                key={index}
+                key={item.id}
+                id={item.id}
                 imageUrl={item.imageUrl}
                 category={capitalizeFirstLetter(item.category)}
                 title={item.title}

@@ -41,3 +41,16 @@
   font-size: 13px;
   margin-bottom: 8px;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorite {
+  color: $primary-color;
+  font-size: 22px;
+  cursor: pointer;
+  color: $primary-color;
+}
