@@ -13,7 +13,7 @@ const ErrorPage = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Oops!</h1>
-      <p className={styles.text}>I guess you are lost...</p>
+      <p className={styles.text}>Something went wrong...</p>
       <Button style={{ marginTop: 20 }} onClick={goHome}>
         Back to Home
       </Button>

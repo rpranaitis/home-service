@@ -1,0 +1,14 @@
+.input {
+  border-radius: 6px;
+  line-height: 1.5;
+  padding: 0.8rem 1rem;
+  transition: box-shadow 0.1s ease-in, border 0.1s ease-in, background-color 0.1s ease-in;
+  border: 2px solid #dee1e2;
+  color: #0e0e10;
+  display: block;
+  width: 100%;
+
+  &:focus-visible {
+    outline-color: #8056eb;
+  }
+}
