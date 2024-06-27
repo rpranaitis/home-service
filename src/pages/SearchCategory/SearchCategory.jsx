@@ -1,13 +1,15 @@
 import styles from './SearchCategory.module.scss';
+import CategoryButton from '../../components/CategoryButton/CategoryButton';
+import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import { useParams, generatePath, Link } from 'react-router-dom';
 import { categories } from '../../components/Categories/constants';
 import { ROUTES } from '../../router/constants';
 import { capitalizeFirstLetter } from '../../utils/strings';
-import CategoryButton from '../../components/CategoryButton/CategoryButton';
-import ServiceCard from '../../components/ServiceCard/ServiceCard';
+import { services } from '../../utils/data';
 
 const SearchCategory = () => {
   const { category } = useParams();
+  const filteredServices = services.filter((item) => item.category === category);
 
   return (
     <div className={styles.container}>
@@ -37,48 +39,20 @@ const SearchCategory = () => {
       <div className={styles.servicesBlock}>
         <span className={styles.serviceHeader}>{capitalizeFirstLetter(category)}</span>
         <div className={styles.servicesContainer}>
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
-          <ServiceCard
-            imageUrl="https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg"
-            category={category}
-            title="House Cleaning"
-            credentials="Rolandas Pranaitis"
-            address="Savanorių pr. 254, Kaunas"
-          />
+          {filteredServices.length > 0 ? (
+            filteredServices.map((item, index) => (
+              <ServiceCard
+                key={index}
+                imageUrl={item.imageUrl}
+                category={capitalizeFirstLetter(item.category)}
+                title={item.title}
+                credentials={item.credentials}
+                address={item.address}
+              />
+            ))
+          ) : (
+            <p>No services</p>
+          )}
         </div>
       </div>
     </div>
