@@ -9,6 +9,7 @@ import Register from './pages/Register/Register';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './router/constants';
+import { UserProvider } from './context/UserContext';
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
 }
 
 export default App;

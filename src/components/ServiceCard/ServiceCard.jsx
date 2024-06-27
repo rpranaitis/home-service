@@ -7,7 +7,7 @@ import { capitalizeFirstLetter } from '../../utils/strings';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 
 const ServiceCard = ({ id, imageUrl, category, title, credentials, address }) => {
-  const [favorites, setFavorites, removeFavorites] = useLocalStorage('service-favorites', []);
+  const [favorites, setFavorites] = useLocalStorage('service-favorites', []);
   const isFavorite = favorites.find((item) => item === id);
   const toggleAddingToFavorites = () => {
     setFavorites((oldFavorites) => {
