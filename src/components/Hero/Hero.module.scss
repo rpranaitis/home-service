@@ -1,9 +1,3 @@
-.containerWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -17,16 +11,4 @@
     width: 100%;
     padding: 30px 15px 15px 15px;
   }
-}
-
-.primaryColor {
-  color: $primary-color;
-}
-
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 15px;
-  padding-bottom: 50px;
 }

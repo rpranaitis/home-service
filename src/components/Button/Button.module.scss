@@ -5,10 +5,23 @@
   outline: none;
   cursor: pointer;
   border: none;
-  padding: 10px 20px;
+  padding: 13px 20px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
 
   &:hover {
     background: $primary-hover-color;
   }
+}
+
+.clean {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
 }

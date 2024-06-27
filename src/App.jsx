@@ -1,35 +1,61 @@
-import styles from './App.module.scss';
-import CategoryCard from './components/CategoryCard/CategoryCard';
-import SearchBar from './components/SearchBar/SearchBar';
-import Topbar from './components/Topbar/Topbar';
-import { MdCleaningServices, MdOutlinePlumbing, MdOutlineElectricalServices } from 'react-icons/md';
-import { GiAutoRepair } from 'react-icons/gi';
-import { PiPaintBrushHouseholdFill } from 'react-icons/pi';
-import { FaTruckMoving } from 'react-icons/fa';
+import RootLayout from './layouts/RootLayout';
+import AuthLayout from './layouts/AuthLayout';
+import Home from './pages/Home/Home';
+import Services from './pages/Services/Services';
+import AboutUs from './pages/AboutUs/AboutUs';
+import SearchCategory from './pages/SearchCategory/SearchCategory';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ROUTES } from './router/constants';
+import { UserProvider } from './context/UserContext';
 
-function App() {
+const router = createBrowserRouter([
+  {
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: ROUTES.HOME,
+        element: <Home />,
+      },
+      {
+        path: ROUTES.SERVICES,
+        element: <Services />,
+      },
+      {
+        path: ROUTES.ABOUT_US,
+        element: <AboutUs />,
+      },
+      {
+        path: ROUTES.SEARCH_CATEGORY,
+        element: <SearchCategory />,
+      },
+    ],
+  },
+  {
+    element: <AuthLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: ROUTES.LOGIN,
+        element: <Login />,
+      },
+      {
+        path: ROUTES.REGISTER,
+        element: <Register />,
+      },
+    ],
+  },
+]);
+
+const App = () => {
   return (
-    <>
-      <Topbar />
-      <div className={styles.containerWrapper}>
-        <div className={styles.container}>
-          <h1>
-            Find Home <span className={styles.primaryColor}>Service/Repair</span> Near You
-          </h1>
-          <h5>Explore Best Home Service & Repair near you</h5>
-          <SearchBar style={{ width: '100%', marginTop: 5 }} />
-        </div>
-        <div className={styles.categories}>
-          <CategoryCard icon={<MdCleaningServices />} iconColor="#b51fef" title="Cleaning" />
-          <CategoryCard icon={<GiAutoRepair />} iconColor="#e7b633" title="Repair" />
-          <CategoryCard icon={<PiPaintBrushHouseholdFill />} iconColor="#079c9e" title="Painting" />
-          <CategoryCard icon={<FaTruckMoving />} iconColor="#e33e44" title="Shifting" />
-          <CategoryCard icon={<MdOutlinePlumbing />} iconColor="#ed9514" title="Plumbing" />
-          <CategoryCard icon={<MdOutlineElectricalServices />} iconColor="#0662ba" title="Electric" />
-        </div>
-      </div>
-    </>
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   );
-}
+};
 
 export default App;

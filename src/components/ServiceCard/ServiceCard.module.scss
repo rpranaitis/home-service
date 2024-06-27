@@ -1,0 +1,56 @@
+.serviceCard {
+  width: 100%;
+  border: 1px solid rgb(221, 221, 221);
+
+  @media (min-width: 768px) {
+    width: calc(50% - 8px);
+  }
+
+  @media (min-width: 1200px) {
+    width: calc(33.333333333% - 10px);
+  }
+
+  @media (min-width: 1400px) {
+    width: calc(25% - 12px);
+  }
+
+  img {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+.serviceDetailsWrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  margin: 8px 0;
+  font-weight: 800;
+}
+
+.personCredentials {
+  color: $primary-color;
+  font-size: 15px;
+}
+
+.address {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorite {
+  color: $primary-color;
+  font-size: 22px;
+  cursor: pointer;
+  color: $primary-color;
+}

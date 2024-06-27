@@ -8,6 +8,10 @@
   cursor: pointer;
   border-radius: 10px;
 
+  &:hover {
+    background: rgb(233, 233, 233);
+  }
+
   @media (max-width: 992px) {
     width: calc(25% - 12px);
   }
