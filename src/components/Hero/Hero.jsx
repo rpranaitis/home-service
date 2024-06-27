@@ -8,7 +8,7 @@ const Hero = () => {
         Find Home <span className={styles.primaryColor}>Service/Repair</span> Near You
       </h1>
       <h5>Explore Best Home Service & Repair near you</h5>
-      <SearchBar style={{ width: '100%', marginTop: 5 }} />
+      <SearchBar />
     </div>
   );
 };

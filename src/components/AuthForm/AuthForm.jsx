@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import styles from './Form.module.scss';
+import styles from './AuthForm.module.scss';
 
-const Form = ({ children, ...props }) => {
+const AuthForm = ({ children, ...props }) => {
   return (
     <form className={styles.form} {...props}>
       {children}
@@ -9,8 +9,8 @@ const Form = ({ children, ...props }) => {
   );
 };
 
-Form.propTypes = {
+AuthForm.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Form;
+export default AuthForm;

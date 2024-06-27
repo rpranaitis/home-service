@@ -1,5 +1,5 @@
 import Button from '../../components/Button/Button';
-import Form from '../../components/Form/Form';
+import AuthForm from '../../components/AuthForm/AuthForm';
 import Input from '../../components/Input/Input';
 import styles from './Login.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <>
-      <Form onSubmit={handleLogIn}>
+      <AuthForm onSubmit={handleLogIn}>
         <h2 className={styles.header}>Login</h2>
         <div className={styles.inputsWrapper}>
           <Input onChange={(e) => setEmail(e.target.value)} value={email} type="email" placeholder="Email" required />
@@ -43,7 +43,7 @@ const Login = () => {
         <Link to={ROUTES.REGISTER} className={styles.redirectLink}>
           Don't have an account? Sign up
         </Link>
-      </Form>
+      </AuthForm>
     </>
   );
 };
