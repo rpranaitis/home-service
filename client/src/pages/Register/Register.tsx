@@ -4,7 +4,7 @@ import Input from '../../components/Input/Input';
 import styles from './Register.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
-import { login, register } from '../../api/auth';
+import { register } from '../../api/auth';
 import { FormEvent, useState } from 'react';
 
 const Register = () => {
