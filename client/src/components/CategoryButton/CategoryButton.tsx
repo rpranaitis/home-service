@@ -4,16 +4,14 @@ import styles from './CategoryButton.module.scss';
 
 interface CategoryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
-  icon: ReactNode;
-  iconColor: string;
+  url: string;
+  color: string;
 }
 
-const CategoryButton: FC<CategoryButtonProps> = ({ active = false, icon, iconColor, children, ...props }) => {
+const CategoryButton: FC<CategoryButtonProps> = ({ active = false, url, color, children, ...props }) => {
   return (
     <button className={classNames(styles.button, active ? styles.activeButton : undefined)} {...props}>
-      <div style={{ color: iconColor }} className={styles.icon}>
-        {icon}
-      </div>
+      <img src={`${url}&color=${color}`} className={styles.icon}/>
       {children}
     </button>
   );

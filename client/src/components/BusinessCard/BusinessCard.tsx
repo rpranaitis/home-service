@@ -1,29 +1,33 @@
 import { FC } from 'react';
 import CategoryBadge from '../CategoryBadge/CategoryBadge';
-import styles from './ServiceCard.module.scss';
+import styles from './BusinessCard.module.scss';
 import Button from '../Button/Button';
 import { useLocalStorage } from 'usehooks-ts';
 import { capitalizeFirstLetter } from '../../utils/strings';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 
-interface ServiceCardProps {
-  id: number;
-  imageUrl: string;
-  category: string;
-  title: string;
-  credentials: string;
+interface BusinessCardProps {
+  id: string;
+  name: string;
+  about: string;
   address: string;
+  category: string;
+  contactPerson: string;
+  email: string;
+  imageUrls: string[];
 }
 
-const ServiceCard: FC<ServiceCardProps> = ({
+const BusinessCard: FC<BusinessCardProps> = ({
   id,
-  imageUrl,
-  category,
-  title,
-  credentials,
+  name,
+  about,
   address,
+  category,
+  contactPerson,
+  email,
+  imageUrls
 }) => {
-  const [favorites, setFavorites] = useLocalStorage<number[]>('service-favorites', []);
+  const [favorites, setFavorites] = useLocalStorage<string[]>('service-favorites', []);
   const isFavorite = favorites.includes(id);
 
   const toggleAddingToFavorites = () => {
@@ -37,8 +41,8 @@ const ServiceCard: FC<ServiceCardProps> = ({
   };
 
   return (
-    <div className={styles.serviceCard}>
-      <img src={imageUrl} alt={title} />
+    <div className={styles.businessCard}>
+      <img src={imageUrls[0] ?? ''} alt={name} />
       <div className={styles.serviceDetailsWrapper}>
         <div className={styles.header}>
           <CategoryBadge>{capitalizeFirstLetter(category)}</CategoryBadge>
@@ -46,8 +50,8 @@ const ServiceCard: FC<ServiceCardProps> = ({
             {isFavorite ? <GoHeartFill /> : <GoHeart />}
           </div>
         </div>
-        <h2 className={styles.title}>{title}</h2>
-        <span className={styles.personCredentials}>{credentials}</span>
+        <h2 className={styles.title}>{name}</h2>
+        <span className={styles.personCredentials}>{contactPerson}</span>
         <span className={styles.address}>{address}</span>
         <Button>Book Now</Button>
       </div>
@@ -55,4 +59,4 @@ const ServiceCard: FC<ServiceCardProps> = ({
   );
 };
 
-export default ServiceCard;
+export default BusinessCard;

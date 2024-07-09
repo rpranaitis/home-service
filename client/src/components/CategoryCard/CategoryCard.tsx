@@ -1,19 +1,18 @@
-import { FC, ReactNode, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes } from 'react';
 import styles from './CategoryCard.module.scss';
+import { capitalizeFirstLetter } from '../../utils/strings';
 
 interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
-  icon: ReactNode;
-  iconColor: string;
-  title: string;
+  name: string;
+  color: string;
+  url: string;
 }
 
-const CategoryCard: FC<CategoryCardProps> = ({ icon, iconColor, title, ...props }) => {
+const CategoryCard: FC<CategoryCardProps> = ({ name, color, url, ...props }) => {
   return (
     <div className={styles.categoryCard} {...props}>
-      <span className={styles.icon} style={{ color: iconColor }}>
-        {icon}
-      </span>
-      <span className={styles.title}>{title}</span>
+      <img src={`${url}&color=${color}`} className={styles.icon}/>
+      <span className={styles.title}>{capitalizeFirstLetter(name)}</span>
     </div>
   );
 };
