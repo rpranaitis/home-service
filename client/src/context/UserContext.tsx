@@ -4,7 +4,7 @@ import { User } from '../types/common';
 
 interface UserContextType {
   user: User | null;
-  login: (user: User) => void;
+  login: (user: User, token: string) => void;
   logout: () => void;
 }
 
@@ -16,16 +16,19 @@ interface UserProviderProps {
 
 const UserProvider: FC<UserProviderProps> = ({ children }) => {
   const [localUser, setLocalUser, removeLocalUser] = useLocalStorage<User | null>('user', null);
+  const [localToken, setLocalToken, removeLocalToken] = useLocalStorage<string | null>('token', null);
   const [user, setUser] = useState<User | null>(localUser);
 
-  const login = (user: User) => {
+  const login = (user: User, token: string) => {
     setUser(user);
     setLocalUser(user);
+    setLocalToken(token);
   };
 
   const logout = () => {
     setUser(null);
     removeLocalUser();
+    removeLocalToken();
   };
 
   return (

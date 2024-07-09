@@ -1,8 +1,12 @@
 export interface User {
+  _id: string;
   name: string;
   age: number;
   email: string;
+  createdAt: string;
+  updatedAt: string;
 }
+
 export interface Category {
   name: string;
   color: string;

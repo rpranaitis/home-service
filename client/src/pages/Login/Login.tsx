@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 import { useState, FormEvent } from 'react';
 import { useUserContext } from '../../context/UserContext';
+import { login as loginApi } from '../../api/auth';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,12 +18,17 @@ const Login = () => {
   const handleLogIn = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const user = {
+    const data = {
       email,
+      password
     };
-
-    login(user);
-    navigate(ROUTES.HOME);
+    
+    loginApi(data).then(response => {
+      if (response) {
+        login(response.user, response.token)
+        navigate(ROUTES.HOME);
+      }
+    });
   };
 
   return (
