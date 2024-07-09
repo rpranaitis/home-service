@@ -1,6 +1,9 @@
+import { FC, InputHTMLAttributes } from 'react';
 import styles from './RoundedInput.module.scss';
 
-const RoundedInput = (props) => {
+interface RoundedInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+const RoundedInput: FC<RoundedInputProps> = (props) => {
   return <input className={styles.input} {...props} />;
 };
 

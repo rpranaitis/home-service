@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
+import { FC, ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Button.module.scss';
 
-const Button = ({ clean = false, children, ...props }) => {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  clean?: boolean;
+  children: ReactNode;
+}
+
+const Button: FC<ButtonProps> = ({ clean = false, children, ...props }) => {
   return (
     <button className={clean ? styles.clean : styles.button} {...props}>
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  clean: PropTypes.bool,
-  children: PropTypes.node.isRequired,
 };
 
 export default Button;

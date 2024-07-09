@@ -1,8 +1,14 @@
-import PropTypes from 'prop-types';
-import styles from './CategoryButton.module.scss';
+import { FC, ReactNode, ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames';
+import styles from './CategoryButton.module.scss';
 
-const CategoryButton = ({ active = false, icon, iconColor, children, ...props }) => {
+interface CategoryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  active?: boolean;
+  icon: ReactNode;
+  iconColor: string;
+}
+
+const CategoryButton: FC<CategoryButtonProps> = ({ active = false, icon, iconColor, children, ...props }) => {
   return (
     <button className={classNames(styles.button, active ? styles.activeButton : undefined)} {...props}>
       <div style={{ color: iconColor }} className={styles.icon}>
@@ -11,13 +17,6 @@ const CategoryButton = ({ active = false, icon, iconColor, children, ...props })
       {children}
     </button>
   );
-};
-
-CategoryButton.propTypes = {
-  active: PropTypes.bool,
-  icon: PropTypes.node.isRequired,
-  iconColor: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
 };
 
 export default CategoryButton;

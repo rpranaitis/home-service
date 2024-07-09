@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import { FC, FormHTMLAttributes, ReactNode } from 'react';
 import styles from './AuthForm.module.scss';
 
-const AuthForm = ({ children, ...props }) => {
+interface AuthFormProps extends FormHTMLAttributes<HTMLFormElement> {
+  children: ReactNode;
+}
+
+const AuthForm: FC<AuthFormProps> = ({ children, ...props }) => {
   return (
     <form className={styles.form} {...props}>
       {children}
     </form>
   );
-};
-
-AuthForm.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default AuthForm;

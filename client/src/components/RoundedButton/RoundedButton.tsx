@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
+import { FC, ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './RoundedButton.module.scss';
 
-const RoundedButton = ({ children, ...props }) => {
+interface RoundedButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+}
+
+const RoundedButton: FC<RoundedButtonProps> = ({ children, ...props }) => {
   return (
     <button className={styles.button} {...props}>
       {children}
     </button>
   );
-};
-
-RoundedButton.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default RoundedButton;

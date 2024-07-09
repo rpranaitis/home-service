@@ -1,4 +1,3 @@
-import React from 'react';
 import Logo from '../../assets/logo.svg';
 import styles from './Topbar.module.scss';
 import Button from '../Button/Button';

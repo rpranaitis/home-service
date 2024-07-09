@@ -1,12 +1,16 @@
-import PropTypes from 'prop-types';
+import { FC, HTMLAttributes, ReactNode } from 'react';
 import styles from './Avatar.module.scss';
 
-const Avatar = ({ children }) => {
-  return <div className={styles.avatar}>{children}</div>;
-};
+interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+}
 
-Avatar.propTypes = {
-  children: PropTypes.node.isRequired,
+const Avatar: FC<AvatarProps> = ({ children, ...props }) => {
+  return (
+    <div className={styles.avatar} {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default Avatar;

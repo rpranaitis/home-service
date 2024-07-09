@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
+import { FC, ReactNode } from 'react';
 import styles from './CategoryBadge.module.scss';
 
-const CategoryBadge = ({ children }) => {
-  return <div className={styles.badge}>{children}</div>;
-};
+interface CategoryBadgeProps {
+  children: ReactNode;
+}
 
-CategoryBadge.propTypes = {
-  children: PropTypes.node.isRequired,
+const CategoryBadge: FC<CategoryBadgeProps> = ({ children }) => {
+  return <div className={styles.badge}>{children}</div>;
 };
 
 export default CategoryBadge;
