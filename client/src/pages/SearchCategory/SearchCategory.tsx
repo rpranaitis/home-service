@@ -8,7 +8,8 @@ import { capitalizeFirstLetter } from '../../utils/strings';
 import { services } from '../../utils/data';
 
 const SearchCategory = () => {
-  const { category } = useParams();
+  const { category } = useParams<{ category: string }>();
+  const categoryName = category ?? '';
   const filteredServices = services.filter((item) => item.category === category);
 
   return (
@@ -37,7 +38,7 @@ const SearchCategory = () => {
         </div>
       </div>
       <div className={styles.servicesBlock}>
-        <span className={styles.serviceHeader}>{capitalizeFirstLetter(category)}</span>
+        <span className={styles.serviceHeader}>{capitalizeFirstLetter(categoryName)}</span>
         <div className={styles.servicesContainer}>
           {filteredServices.length > 0 ? (
             filteredServices.map((item) => (

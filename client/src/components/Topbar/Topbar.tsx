@@ -4,8 +4,7 @@ import Button from '../Button/Button';
 import Avatar from '../Avatar/Avatar';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
-import { UserContext } from '../../context/UserContext';
-import { useContext } from 'react';
+import { useUserContext } from '../../context/UserContext';
 
 const links = [
   {
@@ -24,7 +23,12 @@ const links = [
 
 const Topbar = () => {
   const navigate = useNavigate();
-  const { user, logout } = useContext(UserContext);
+  const { user, logout } = useUserContext();
+
+  const handleLogout = () => {
+    logout();
+    navigate(ROUTES.HOME);
+  }
 
   return (
     <div className={styles.topbar}>
@@ -47,7 +51,7 @@ const Topbar = () => {
       <div className={styles.rightSide}>
         {user ? (
           <div className={styles.rightSideWrapper}>
-            <Button onClick={() => logout()} style={{ padding: '10px 20px' }}>
+            <Button onClick={handleLogout} style={{ padding: '10px 20px' }}>
               <Avatar>{user.email[0]}</Avatar>
               Log out
             </Button>

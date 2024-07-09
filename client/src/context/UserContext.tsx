@@ -1,13 +1,24 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, FC, ReactNode, useContext } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import { User } from '../types/common';
 
-const UserContext = createContext(null);
+interface UserContextType {
+  user: User | null;
+  login: (user: User) => void;
+  logout: () => void;
+}
 
-const UserProvider = ({ children }) => {
-  const [localUser, setLocalUser, removeLocalUser] = useLocalStorage('user', null);
-  const [user, setUser] = useState(localUser);
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
-  const login = (user) => {
+interface UserProviderProps {
+  children: ReactNode;
+}
+
+const UserProvider: FC<UserProviderProps> = ({ children }) => {
+  const [localUser, setLocalUser, removeLocalUser] = useLocalStorage<User | null>('user', null);
+  const [user, setUser] = useState<User | null>(localUser);
+
+  const login = (user: User) => {
     setUser(user);
     setLocalUser(user);
   };
@@ -17,7 +28,21 @@ const UserProvider = ({ children }) => {
     removeLocalUser();
   };
 
-  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, login, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
 
-export { UserProvider, UserContext };
+const useUserContext = () => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error('useUserContext must be used within a UserProvider');
+  }
+  
+  return context;
+};
+
+export { UserProvider, useUserContext };

@@ -4,17 +4,17 @@ import Input from '../../components/Input/Input';
 import styles from './Login.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
-import { useState, useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
+import { useState, FormEvent } from 'react';
+import { useUserContext } from '../../context/UserContext';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useContext(UserContext);
+  const { login } = useUserContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogIn = (e) => {
+  const handleLogIn = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const user = {
