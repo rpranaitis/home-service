@@ -1,4 +1,4 @@
-.input {
+.inputField {
   border-radius: 6px;
   line-height: 1.5;
   padding: 0.8rem 1rem;
@@ -11,4 +11,10 @@
   &:focus-visible {
     outline-color: #8056eb;
   }
+}
+
+.error {
+  color: #ff6363;
+  font-size: 12px;
+  margin-top: 7px;
 }
