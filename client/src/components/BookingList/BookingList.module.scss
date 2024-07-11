@@ -1,0 +1,36 @@
+.section {
+  display: grid;
+  align-content: center;
+  width: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 5px;
+    gap: 15px;
+
+    .card {
+      min-width: 300px;
+      min-height: 200px;
+      border: 2px solid #f0f0f0;
+      padding: 15px 25px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+
+      div:first-child {
+        height: 100px;
+        width: 150px;
+        background-color: red;
+      }
+    }
+  }
+}

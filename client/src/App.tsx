@@ -2,6 +2,7 @@ import RootLayout from './layouts/RootLayout';
 import AuthLayout from './layouts/AuthLayout';
 import Home from './pages/Home/Home';
 import Services from './pages/Services/Services';
+import Booking from './pages/Booking/Booking';
 import AboutUs from './pages/AboutUs/AboutUs';
 import SearchCategory from './pages/SearchCategory/SearchCategory';
 import Login from './pages/Login/Login';
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.SERVICES,
         element: <Services />,
+      },
+      {
+        path: ROUTES.BOOKING,
+        element: <Booking />,
       },
       {
         path: ROUTES.ABOUT_US,

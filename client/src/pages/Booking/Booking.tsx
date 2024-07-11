@@ -1,13 +1,19 @@
-import style from './Booking.module.scss';
+import styles from './Booking.module.scss';
 
-import Hero from '@/components/Hero/Hero';
-import Categories from '@/components/Categories/Categories';
+import BookingMenu from '../../components/BookingMenu/BookingMenu';
+import BookingList from '../../components/BookingList/BookingList';
 
 const Booking = () => {
   return (
     <>
-      <Hero />
-      <Categories />
+      <section className={styles.section}>
+        <div className={styles.wrapper}>
+          <h2>My Bookings</h2>
+        </div>
+      </section>
+
+      <BookingMenu />
+      <BookingList />
     </>
   );
 };
