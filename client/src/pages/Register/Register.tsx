@@ -1,12 +1,12 @@
-import Button from '../../components/Button/Button';
-import InputField from '../../components/InputField/InputField';
+import Button from '@/components/Button/Button';
+import InputField from '@/components/InputField/InputField';
 import styles from './Register.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
-import { RegisterFormValues } from '../../types/common';
-import { registerValidationSchema } from '../../schemas/auth';
+import { ROUTES } from '@/router/constants';
+import { RegisterFormValues } from '@/types/common';
+import { registerValidationSchema } from '@/schemas/auth';
 import { Formik, Form } from 'formik';
-import { useRegisterUser } from '../../hooks/user';
+import { useRegisterUser } from '@/hooks/user';
 
 const initialValues: RegisterFormValues = {
   name: '',

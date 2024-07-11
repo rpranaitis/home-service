@@ -1,7 +1,7 @@
 import styles from './Booking.module.scss';
 
-import BookingMenu from '../../components/BookingMenu/BookingMenu';
-import BookingList from '../../components/BookingList/BookingList';
+import BookingMenu from '@/components/BookingMenu/BookingMenu';
+import BookingList from '@/components/BookingList/BookingList';
 
 const Booking = () => {
   return (
@@ -13,6 +13,7 @@ const Booking = () => {
       </section>
 
       <BookingMenu />
+
       <BookingList />
     </>
   );

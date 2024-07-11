@@ -3,7 +3,7 @@ import CategoryBadge from '../CategoryBadge/CategoryBadge';
 import styles from './BusinessCard.module.scss';
 import Button from '../Button/Button';
 import { useLocalStorage } from 'usehooks-ts';
-import { capitalizeFirstLetter } from '../../utils/strings';
+import { capitalizeFirstLetter } from '@/utils/strings';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 
 interface BusinessCardProps {
