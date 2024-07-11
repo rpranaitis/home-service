@@ -112,6 +112,9 @@ const Topbar = () => {
                     transform: 'translateY(-50%) rotate(45deg)',
                     zIndex: 0,
                   },
+                  '& .MuiMenuItem-root': {
+                    padding: '0.5rem 1rem',
+                  },
                 },
               }}
               transformOrigin={{ horizontal: 'right', vertical: 'top' }}
