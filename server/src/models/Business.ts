@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 interface IBusiness {
   name: string;
@@ -17,7 +17,7 @@ const businessSchema = new mongoose.Schema<IBusiness>({
   },
   about: {
     type: String,
-    default: "",
+    default: '',
   },
   address: {
     type: String,
@@ -38,7 +38,7 @@ const businessSchema = new mongoose.Schema<IBusiness>({
       validator: function (email: string) {
         return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
       },
-      message: "Invalid email format",
+      message: 'Invalid email format',
     },
   },
   imageUrls: [
@@ -49,6 +49,6 @@ const businessSchema = new mongoose.Schema<IBusiness>({
   ],
 });
 
-const Business = mongoose.model<IBusiness>("Business", businessSchema);
+const Business = mongoose.model<IBusiness>('Business', businessSchema);
 
 export default Business;
