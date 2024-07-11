@@ -3,10 +3,10 @@ import InputField from '../../components/InputField/InputField';
 import styles from './Register.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
-import { register } from '../../api/auth';
 import { RegisterFormValues } from '../../types/common';
 import { registerValidationSchema } from '../../schemas/auth';
 import { Formik, Form } from 'formik';
+import { useRegisterUser } from '../../hooks/user';
 
 const initialValues: RegisterFormValues = {
   name: '',
@@ -17,21 +17,16 @@ const initialValues: RegisterFormValues = {
 
 const Register = () => {
   const navigate = useNavigate();
+  const { mutateAsync: registerUser } = useRegisterUser();
 
-  const handleSubmit = (values: RegisterFormValues) => {
-    const data = {
-      name: values.name,
-      age: parseInt(values.age),
-      email: values.email,
-      password: values.password,
-    };
-
-    register(data).then((response) => {
-      if (response) {
-        alert('Registration successfull!');
-        navigate(ROUTES.LOGIN);
-      }
-    });
+  const handleSubmit = async (values: RegisterFormValues) => {
+    try {
+      await registerUser(values);
+      alert('Registration successfull!');
+      navigate(ROUTES.LOGIN);
+    } catch (error: any) {
+      alert(error.response.data.message ?? 'An unexpected error occurred.');
+    }
   };
 
   return (

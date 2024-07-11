@@ -5,28 +5,20 @@ import { useParams, generatePath, Link } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 import { capitalizeFirstLetter } from '../../utils/strings';
 import { Business, Category } from '../../types/common';
-import { useEffect, useState } from 'react';
-import { fetchCategories } from '../../api/categories';
-import { fetchBusinesses } from '../../api/businesses';
+import { useBusinesses } from '../../hooks/business';
+import { useCategories } from '../../hooks/category';
 
 const SearchCategory = () => {
   const { category } = useParams<{ category: string }>();
   const categoryName = category ?? '';
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [businesses, setBusinesses] = useState<Business[]>([]);
+
+  const { data: categoryData } = useCategories();
+  const categories: Category[] = categoryData ?? [];
+
+  const { data: businessData } = useBusinesses();
+  const businesses: Business[] = businessData ?? [];
+
   const filteredBusinesses = businesses.filter((item) => item.category === categoryName);
-
-  useEffect(() => {
-    fetchCategories().then((response) => {
-      setCategories(response);
-    });
-  }, []);
-
-  useEffect(() => {
-    fetchBusinesses().then((response) => {
-      setBusinesses(response);
-    });
-  }, []);
 
   return (
     <div className={styles.container}>

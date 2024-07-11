@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ROUTES } from './router/constants';
 import { UserProvider } from './context/UserContext';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {
@@ -50,11 +51,15 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
-    <UserProvider>
-      <RouterProvider router={router} />
-    </UserProvider>
+    <QueryClientProvider client={queryClient}>
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
+    </QueryClientProvider>
   );
 };
 

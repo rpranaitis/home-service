@@ -7,6 +7,15 @@ export interface User {
   updatedAt: string;
 }
 
+export type NewUser = Omit<User, 'id'>;
+
+export interface UserResponse {
+  status: string;
+  message?: string;
+  token: string;
+  user: User;
+}
+
 export interface Category {
   name: string;
   color: string;

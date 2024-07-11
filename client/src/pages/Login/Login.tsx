@@ -4,10 +4,10 @@ import styles from './Login.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 import { useUserContext } from '../../context/UserContext';
-import { login as loginApi } from '../../api/auth';
 import { Formik, Form } from 'formik';
 import { loginValidationSchema } from '../../schemas/auth';
 import { LoginFormValues } from '../../types/common';
+import { useLoginUser } from '../../hooks/user';
 
 const initialValues: LoginFormValues = {
   email: '',
@@ -17,14 +17,16 @@ const initialValues: LoginFormValues = {
 const Login = () => {
   const navigate = useNavigate();
   const { login } = useUserContext();
+  const { mutateAsync: loginUser } = useLoginUser();
 
-  const handleSubmit = (values: LoginFormValues) => {
-    loginApi(values).then((response) => {
-      if (response) {
-        login(response.user, response.token);
-        navigate(ROUTES.HOME);
-      }
-    });
+  const handleSubmit = async (values: LoginFormValues) => {
+    try {
+      const response = await loginUser(values);
+      login(response.user, response.token);
+      navigate(ROUTES.HOME);
+    } catch (error: any) {
+      alert(error.response.data.message ?? 'An unexpected error occurred.');
+    }
   };
 
   return (
