@@ -23,3 +23,10 @@ export interface Business {
   email: string;
   imageUrls: string[];
 }
+
+export interface RegisterFormValues {
+  name: string;
+  age: number;
+  email: string;
+  password: string;
+}

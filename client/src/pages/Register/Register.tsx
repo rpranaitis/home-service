@@ -18,10 +18,10 @@ const Register = () => {
     e.preventDefault();
 
     const data = { name, age: parseInt(age), email, password };
-    
-    register(data).then(response => {
+
+    register(data).then((response) => {
       if (response) {
-        alert('Registration successfull!')
+        alert('Registration successfull!');
         navigate(ROUTES.LOGIN);
       }
     });

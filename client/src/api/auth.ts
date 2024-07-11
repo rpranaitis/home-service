@@ -1,5 +1,5 @@
-import axiosInstance from "../config/axios";
-import { User } from "../types/common";
+import axiosInstance from '../config/axios';
+import { User } from '../types/common';
 
 interface IUser {
   status: string;
@@ -14,20 +14,20 @@ interface loginData {
 }
 
 interface registerData {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
   email: string;
   password: string;
 }
 
 export const login = async (data: loginData): Promise<IUser> => {
-  const response = await axiosInstance.post("/auth/login", data);
-  
+  const response = await axiosInstance.post('/auth/login', data);
+
   return await response.data;
 };
 
 export const register = async (data: registerData): Promise<object> => {
-  const response = await axiosInstance.post("/auth/register", data);
-  
+  const response = await axiosInstance.post('/auth/register', data);
+
   return await response.data;
 };

@@ -15,7 +15,7 @@ const Categories = () => {
   };
 
   useEffect(() => {
-    fetchCategories().then(response => {
+    fetchCategories().then((response) => {
       setCategories(response);
     });
   }, []);
@@ -23,13 +23,7 @@ const Categories = () => {
   return (
     <div className={styles.container}>
       {categories.map((item: Category, index: number) => (
-        <CategoryCard
-          key={index}
-          onClick={() => navigateToCategory(item.name)}
-          name={item.name}
-          color={item.color}
-          url={item.url}
-        />
+        <CategoryCard key={index} onClick={() => navigateToCategory(item.name)} name={item.name} color={item.color} url={item.url} />
       ))}
     </div>
   );

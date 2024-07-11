@@ -11,7 +11,7 @@ interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
 const CategoryCard: FC<CategoryCardProps> = ({ name, color, url, ...props }) => {
   return (
     <div className={styles.categoryCard} {...props}>
-      <img src={`${url}&color=${color}`} className={styles.icon}/>
+      <img src={`${url}&color=${color}`} className={styles.icon} />
       <span className={styles.title}>{capitalizeFirstLetter(name)}</span>
     </div>
   );

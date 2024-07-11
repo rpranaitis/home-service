@@ -1,8 +1,7 @@
 export const services = [
   {
     id: 1,
-    imageUrl:
-      'https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg',
+    imageUrl: 'https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg',
     category: 'cleaning',
     title: 'House Cleaning',
     credentials: 'Goda Abromaitytė',

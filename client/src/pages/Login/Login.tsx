@@ -20,12 +20,12 @@ const Login = () => {
 
     const data = {
       email,
-      password
+      password,
     };
-    
-    loginApi(data).then(response => {
+
+    loginApi(data).then((response) => {
       if (response) {
-        login(response.user, response.token)
+        login(response.user, response.token);
         navigate(ROUTES.HOME);
       }
     });
@@ -37,13 +37,7 @@ const Login = () => {
         <h2 className={styles.header}>Login</h2>
         <div className={styles.inputsWrapper}>
           <Input onChange={(e) => setEmail(e.target.value)} value={email} type="email" placeholder="Email" required />
-          <Input
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <Input onChange={(e) => setPassword(e.target.value)} value={password} type="password" placeholder="Password" required />
           <Button type="submit">Log in</Button>
         </div>
         <Link to={ROUTES.REGISTER} className={styles.redirectLink}>

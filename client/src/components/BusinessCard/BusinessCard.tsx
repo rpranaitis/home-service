@@ -17,16 +17,7 @@ interface BusinessCardProps {
   imageUrls: string[];
 }
 
-const BusinessCard: FC<BusinessCardProps> = ({
-  id,
-  name,
-  about,
-  address,
-  category,
-  contactPerson,
-  email,
-  imageUrls
-}) => {
+const BusinessCard: FC<BusinessCardProps> = ({ id, name, about, address, category, contactPerson, email, imageUrls }) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('service-favorites', []);
   const isFavorite = favorites.includes(id);
 

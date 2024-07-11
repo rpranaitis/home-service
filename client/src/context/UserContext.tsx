@@ -31,11 +31,7 @@ const UserProvider: FC<UserProviderProps> = ({ children }) => {
     removeLocalToken();
   };
 
-  return (
-    <UserContext.Provider value={{ user, login, logout }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
 };
 
 const useUserContext = () => {
@@ -44,7 +40,7 @@ const useUserContext = () => {
   if (!context) {
     throw new Error('useUserContext must be used within a UserProvider');
   }
-  
+
   return context;
 };
 

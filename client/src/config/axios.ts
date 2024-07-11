@@ -1,6 +1,6 @@
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 
-const baseURL = "http://localhost:3000/";
+const baseURL = 'http://localhost:3000/';
 
 const config: AxiosRequestConfig = {
   baseURL,
@@ -10,7 +10,7 @@ export const axiosInstance = axios.create(config);
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
 
     if (token) {
       const parsedToken = JSON.parse(token);
@@ -20,7 +20,7 @@ axiosInstance.interceptors.request.use(
   },
   (error: AxiosError) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;

@@ -28,7 +28,7 @@ const Topbar = () => {
   const handleLogout = () => {
     logout();
     navigate(ROUTES.HOME);
-  }
+  };
 
   return (
     <div className={styles.topbar}>

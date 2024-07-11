@@ -11,7 +11,7 @@ interface CategoryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const CategoryButton: FC<CategoryButtonProps> = ({ active = false, url, color, children, ...props }) => {
   return (
     <button className={classNames(styles.button, active ? styles.activeButton : undefined)} {...props}>
-      <img src={`${url}&color=${color}`} className={styles.icon}/>
+      <img src={`${url}&color=${color}`} className={styles.icon} />
       {children}
     </button>
   );

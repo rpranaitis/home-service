@@ -17,13 +17,13 @@ const SearchCategory = () => {
   const filteredBusinesses = businesses.filter((item) => item.category === categoryName);
 
   useEffect(() => {
-    fetchCategories().then(response => {
+    fetchCategories().then((response) => {
       setCategories(response);
     });
   }, []);
 
   useEffect(() => {
-    fetchBusinesses().then(response => {
+    fetchBusinesses().then((response) => {
       setBusinesses(response);
     });
   }, []);
@@ -36,15 +36,8 @@ const SearchCategory = () => {
           <ul className={styles.listBlockList}>
             {categories.map((item: Category, index: number) => (
               <li key={index}>
-                <Link
-                  to={generatePath(ROUTES.SEARCH_CATEGORY, { category: item.name })}
-                  className={styles.link}
-                >
-                  <CategoryButton
-                    active={category === item.name}
-                    url={item.url}
-                    color={item.color}
-                  >
+                <Link to={generatePath(ROUTES.SEARCH_CATEGORY, { category: item.name })} className={styles.link}>
+                  <CategoryButton active={category === item.name} url={item.url} color={item.color}>
                     {capitalizeFirstLetter(item.name)}
                   </CategoryButton>
                 </Link>
