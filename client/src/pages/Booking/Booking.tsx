@@ -2,18 +2,13 @@ import styles from './Booking.module.scss';
 
 import BookingMenu from '@/components/BookingMenu/BookingMenu';
 import BookingList from '@/components/BookingList/BookingList';
+import Heading from '@/components/Heading/Heading';
 
 const Booking = () => {
   return (
     <>
-      <section className={styles.section}>
-        <div className={styles.wrapper}>
-          <h2>My Bookings</h2>
-        </div>
-      </section>
-
+      <Heading>My Bookings</Heading>
       <BookingMenu />
-
       <BookingList />
     </>
   );
