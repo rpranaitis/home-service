@@ -47,11 +47,9 @@ const SearchCategory = () => {
                 key={item._id}
                 id={item._id}
                 name={item.name}
-                about={item.about}
                 address={item.address}
                 category={item.category}
                 contactPerson={item.contactPerson}
-                email={item.email}
                 imageUrls={item.imageUrls}
               />
             ))

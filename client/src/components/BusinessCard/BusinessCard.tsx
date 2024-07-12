@@ -9,15 +9,13 @@ import { GoHeart, GoHeartFill } from 'react-icons/go';
 interface BusinessCardProps {
   id: string;
   name: string;
-  about: string;
   address: string;
   category: string;
   contactPerson: string;
-  email: string;
   imageUrls: string[];
 }
 
-const BusinessCard: FC<BusinessCardProps> = ({ id, name, about, address, category, contactPerson, email, imageUrls }) => {
+const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, contactPerson, imageUrls }) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('service-favorites', []);
   const isFavorite = favorites.includes(id);
 
