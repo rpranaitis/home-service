@@ -20,6 +20,7 @@ router.post('/', authMiddleware, async (req, res) => {
 
   try {
     const categoryExists = await Category.findOne({ name: business.category });
+
     if (!categoryExists) {
       return res.status(400).json({
         message: 'Failed to add business: specified category does not exist.',
@@ -41,13 +42,25 @@ router.post('/', authMiddleware, async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const business = await Business.findById(req.params.id);
+
     if (business) {
       res.json(business);
     } else {
-      res.status(404).send('Business not found');
+      res.status(404).send('Business not found.');
     }
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching business', error: err });
+    res.status(500).json({ message: 'Error fetching business.', error: err });
+  }
+});
+
+router.get('/search/:query', async (req, res) => {
+  try {
+    const query = req.params.query;
+    const businesses = await Business.find({ name: { $regex: query, $options: 'i' } });
+
+    res.json(businesses);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching businesses.', error: err });
   }
 });
 
@@ -58,7 +71,7 @@ router.get('/category/:category', async (req, res) => {
     });
     res.json(filteredBusinesses);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching businesses by category', error: err });
+    res.status(500).json({ message: 'Error fetching businesses by category.', error: err });
   }
 });
 
@@ -71,7 +84,7 @@ router.get('/:id/bookings/date/:date', async (req, res) => {
     res.json(slots);
   } catch (err) {
     res.status(500).json({
-      message: 'Error fetching bookings for the specified date and business',
+      message: 'Error fetching bookings for the specified date and business.',
       error: err,
     });
   }

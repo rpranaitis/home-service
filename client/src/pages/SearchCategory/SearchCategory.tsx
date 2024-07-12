@@ -1,7 +1,7 @@
 import styles from './SearchCategory.module.scss';
 import CategoryButton from '../../components/CategoryButton/CategoryButton';
 import BusinessCard from '../../components/BusinessCard/BusinessCard';
-import { useParams, generatePath, Link, useNavigate } from 'react-router-dom';
+import { useParams, generatePath, Link } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 import { capitalizeFirstLetter } from '../../utils/strings';
 import { Business, Category } from '../../types/common';
@@ -11,8 +11,6 @@ import { useCategories } from '../../hooks/category';
 const SearchCategory = () => {
   const { category } = useParams<{ category: string }>();
   const categoryName = category ?? '';
-
-  const navigate = useNavigate();
 
   const { data: categoryData } = useCategories();
   const categories: Category[] = categoryData ?? [];
@@ -44,18 +42,7 @@ const SearchCategory = () => {
         <span className={styles.serviceHeader}>{capitalizeFirstLetter(categoryName)}</span>
         <div className={styles.servicesContainer}>
           {filteredBusinesses.length > 0 ? (
-            filteredBusinesses.map((item) => (
-              <BusinessCard
-                key={item._id}
-                id={item._id}
-                name={item.name}
-                address={item.address}
-                category={item.category}
-                contactPerson={item.contactPerson}
-                imageUrls={item.imageUrls}
-                onClick={() => navigate(generatePath(ROUTES.BUSINESS_DETAILS, { id: item._id }))}
-              />
-            ))
+            filteredBusinesses.map((item) => <BusinessCard key={item._id} business={item} />)
           ) : (
             <p>No services</p>
           )}
