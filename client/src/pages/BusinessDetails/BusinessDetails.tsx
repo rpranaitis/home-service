@@ -138,34 +138,36 @@ const BusinessDetails = () => {
             <span className={styles.text}>Book Appointment</span>
           </Button>
           <h4 className={styles.smallTitle}>Similar Business</h4>
-          <BusinessCardSmall
-            id="abc123"
-            name="House Cleaning"
-            address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
-            contactPerson="Rolandas Pranaitis"
-            imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
-          />
-          <BusinessCardSmall
-            id="abc123"
-            name="House Cleaning"
-            address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
-            contactPerson="Rolandas Pranaitis"
-            imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
-          />
-          <BusinessCardSmall
-            id="abc123"
-            name="House Cleaning"
-            address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
-            contactPerson="Rolandas Pranaitis"
-            imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
-          />
-          <BusinessCardSmall
-            id="abc123"
-            name="House Cleaning"
-            address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
-            contactPerson="Rolandas Pranaitis"
-            imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
-          />
+          <div className={styles.businessCards}>
+            <BusinessCardSmall
+              id="abc123"
+              name="House Cleaning"
+              address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
+              contactPerson="Rolandas Pranaitis"
+              imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
+            />
+            <BusinessCardSmall
+              id="abc123"
+              name="House Cleaning"
+              address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
+              contactPerson="Rolandas Pranaitis"
+              imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
+            />
+            <BusinessCardSmall
+              id="abc123"
+              name="House Cleaning"
+              address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
+              contactPerson="Rolandas Pranaitis"
+              imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
+            />
+            <BusinessCardSmall
+              id="abc123"
+              name="House Cleaning"
+              address="Tilto g. 77, Grinkiškis, Radviliškio r. sav."
+              contactPerson="Rolandas Pranaitis"
+              imageUrls={['https://www.pristinehome.com.au/wp-content/uploads/2020/01/15-Cleaning-Tips-from-Professional-Cleaners-3.jpg']}
+            />
+          </div>
         </div>
       </div>
     </div>
