@@ -13,7 +13,7 @@ interface BusinessCardProps {
   category: string;
   contactPerson: string;
   imageUrls: string[];
-  onClick: Function;
+  onClick: () => void;
 }
 
 const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, contactPerson, imageUrls, onClick }) => {
@@ -43,7 +43,7 @@ const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, cont
         <h2 className={styles.title}>{name}</h2>
         <span className={styles.personCredentials}>{contactPerson}</span>
         <span className={styles.address}>{address}</span>
-        <Button onClick={() => onClick()}>Book Now</Button>
+        <Button onClick={onClick}>Book Now</Button>
       </div>
     </div>
   );

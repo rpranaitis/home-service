@@ -92,15 +92,9 @@ const BusinessDetails = () => {
             <div className={styles.similarBusiness}>
               <h4 className={styles.smallTitle}>Similar Business</h4>
               <div className={styles.businessCards}>
-                {similarBusiness?.map((item) => (
+                {similarBusiness.map((item) => (
                   <div key={item._id} onClick={() => navigate(generatePath(ROUTES.BUSINESS_DETAILS, { id: item._id }))}>
-                    <BusinessCardSmall
-                      id={item._id}
-                      name={item.name}
-                      address={item.address}
-                      contactPerson={item.contactPerson}
-                      imageUrls={item.imageUrls}
-                    />
+                    <BusinessCardSmall business={item} />
                   </div>
                 ))}
               </div>

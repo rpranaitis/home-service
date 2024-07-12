@@ -1,24 +1,21 @@
-import { FC } from 'react';
 import styles from './BusinessCardSmall.module.scss';
+import { FC } from 'react';
+import { Business } from '../../types/common';
 
 interface BusinessCardSmallProps {
-  id: string;
-  name: string;
-  address: string;
-  contactPerson: string;
-  imageUrls: string[];
+  business: Business;
 }
 
-const BusinessCardSmall: FC<BusinessCardSmallProps> = ({ id, name, address, contactPerson, imageUrls }) => {
+const BusinessCardSmall: FC<BusinessCardSmallProps> = ({ business }) => {
   return (
     <div className={styles.businessCard}>
       <div className={styles.imageContainer}>
-        <img src={imageUrls[0] ?? ''} alt={name} />
+        <img src={business.imageUrls[0] ?? ''} alt={business.name} />
       </div>
       <div className={styles.infoContainer}>
-        <h4>{name}</h4>
-        <span className={styles.contactPerson}>{contactPerson}</span>
-        <span className={styles.address}>{address}</span>
+        <h4>{business.name}</h4>
+        <span className={styles.contactPerson}>{business.contactPerson}</span>
+        <span className={styles.address}>{business.address}</span>
       </div>
     </div>
   );
