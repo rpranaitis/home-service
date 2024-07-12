@@ -1,10 +1,11 @@
+import React from 'react';
 import Logo from '../../assets/logo.svg';
 import styles from './Topbar.module.scss';
 import Button from '../Button/Button';
-import Avatar from '../Avatar/Avatar';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router/constants';
 import { useUserContext } from '../../context/UserContext';
+import AccountMenu from '../AccountMenu/AccountMenu';
 
 const links = [
   {
@@ -23,12 +24,7 @@ const links = [
 
 const Topbar = () => {
   const navigate = useNavigate();
-  const { user, logout } = useUserContext();
-
-  const handleLogout = () => {
-    logout();
-    navigate(ROUTES.HOME);
-  };
+  const { user } = useUserContext();
 
   return (
     <div className={styles.topbar}>
@@ -51,10 +47,7 @@ const Topbar = () => {
       <div className={styles.rightSide}>
         {user ? (
           <div className={styles.rightSideWrapper}>
-            <Button onClick={handleLogout} style={{ padding: '10px 20px' }}>
-              <Avatar>{user.email[0]}</Avatar>
-              Log out
-            </Button>
+            <AccountMenu user={user} />
           </div>
         ) : (
           <Button onClick={() => navigate(ROUTES.LOGIN)}>Login / Sign Up</Button>
