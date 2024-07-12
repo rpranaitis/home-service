@@ -13,9 +13,10 @@ interface BusinessCardProps {
   category: string;
   contactPerson: string;
   imageUrls: string[];
+  onClick: Function;
 }
 
-const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, contactPerson, imageUrls }) => {
+const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, contactPerson, imageUrls, onClick }) => {
   const [favorites, setFavorites] = useLocalStorage<string[]>('service-favorites', []);
   const isFavorite = favorites.includes(id);
 
@@ -42,7 +43,7 @@ const BusinessCard: FC<BusinessCardProps> = ({ id, name, address, category, cont
         <h2 className={styles.title}>{name}</h2>
         <span className={styles.personCredentials}>{contactPerson}</span>
         <span className={styles.address}>{address}</span>
-        <Button>Book Now</Button>
+        <Button onClick={() => onClick()}>Book Now</Button>
       </div>
     </div>
   );

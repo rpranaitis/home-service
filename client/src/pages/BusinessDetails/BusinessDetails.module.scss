@@ -76,6 +76,16 @@
   }
 }
 
+.similarBusiness {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: 1400px) {
+    gap: 20px;
+  }
+}
+
 .mainInfoBlock {
   display: flex;
   align-items: center;
