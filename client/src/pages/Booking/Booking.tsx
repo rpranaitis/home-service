@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import axiosInstance from '@/config/axios';
 import styles from './Booking.module.scss';
 
@@ -6,10 +6,10 @@ import Heading from '@/components/Heading/Heading';
 import BookingMenu from './partials/BookingMenu/BookingMenu';
 import BookingList from './partials/BookingList/BookingList';
 import { Booking as BookingType } from '@/types/common';
-import { useUserContext } from '@/context/UserContext'; // Adjust the path based on your setup
+import { useUserContext } from '@/context/UserContext';
 
-const Booking: React.FC = () => {
-  const { user } = useUserContext(); // Assuming user context provides logged-in user's information
+const Booking: FC = () => {
+  const { user } = useUserContext();
   const [bookings, setBookings] = useState<BookingType[]>([]);
   const [currentTab, setCurrentTab] = useState<string>('booked');
 
