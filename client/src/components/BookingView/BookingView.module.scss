@@ -1,9 +1,18 @@
 .container {
-  width: 350px;
+  width: 364px;
   padding: 30px 25px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.closeButton {
+  cursor: pointer;
 }
 
 .title {

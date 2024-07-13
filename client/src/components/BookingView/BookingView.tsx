@@ -10,6 +10,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { Booking, Business, NewBooking } from '../../types/common';
 import { useUserContext } from '../../context/UserContext';
 import { bookService } from '../../api/booking';
+import { IoMdClose } from 'react-icons/io';
 
 interface BookingViewProps {
   business: Business;
@@ -77,7 +78,10 @@ const BookingView: FC<BookingViewProps> = ({ business, showDrawer, setShowDrawer
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <h2 className={styles.title}>Book an Service</h2>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Book an Service</h2>
+          <IoMdClose className={styles.closeButton} onClick={() => setShowDrawer(false)} />
+        </div>
         <span className={styles.text}>Select Date and Time slot to book an service</span>
       </div>
       <div className={styles.dateWrapper}>
