@@ -21,7 +21,7 @@ const BookingList: FC<BookingListProps> = ({ bookings, currentTab }) => {
   return (
     <div>
       {filteredBookings.length === 0 ? (
-        <p>No bookings found.</p>
+        <p className={styles.padding}>No bookings found.</p>
       ) : (
         <div className={styles.wrapper}>
           {filteredBookings.map((booking) => (

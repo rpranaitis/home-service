@@ -1,27 +1,43 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Booking as BookingType } from '@/types/common';
 import styles from './BookingCard.module.scss';
 import NoImage from '@/assets/no-image.svg';
+
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 
 interface BookingCardProps {
   booking: BookingType;
 }
 
 const BookingCard: FC<BookingCardProps> = ({ booking }) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container} key={booking._id}>
-        <div className={styles.card}>
+    <div className={styles.container}>
+      <div className={styles.card} key={booking._id}>
+        <div>
+          <img src={booking.business.imageUrls[0] || NoImage} alt="NoPhoto" />
+        </div>
+        <div>
+          <div>{booking.business.name}</div>
           <div>
-            <img src={NoImage} alt="NoPhoto" />
+            <PermIdentityIcon style={{ marginRight: '10px' }} /> {booking.business.contactPerson}
           </div>
           <div>
-            <div>{booking.businessId}</div>
-            <div>{booking.date}</div>
-            <div>{booking.status}</div>
-            <div>{booking.time}</div>
-            <div>{booking.userEmail}</div>
-            <div>{booking.userName}</div>
+            <RoomOutlinedIcon style={{ marginRight: '10px' }} /> {booking.business.address}
+          </div>
+          <div>
+            <CalendarMonthOutlinedIcon style={{ marginRight: '10px' }} />
+            {formatDate(booking.date)}
+          </div>
+          <div>
+            <AccessTimeOutlinedIcon style={{ marginRight: '10px' }} /> {booking.time}
           </div>
         </div>
       </div>

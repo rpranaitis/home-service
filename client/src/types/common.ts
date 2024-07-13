@@ -34,6 +34,7 @@ export interface Business {
 }
 
 export interface Booking {
+  [x: string]: any;
   _id: string;
   businessId: string;
   date: string;
