@@ -1,0 +1,25 @@
+.servicesContainer {
+  padding: 10px 10px 30px 10px;
+  color: #333;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    padding: 40px;
+  }
+}
+
+.servicesHeader {
+  text-align: center;
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 34px;
+    color: #333;
+  }
+}
+
+.servicesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
