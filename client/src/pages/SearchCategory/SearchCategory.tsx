@@ -42,19 +42,7 @@ const SearchCategory = () => {
         <span className={styles.serviceHeader}>{capitalizeFirstLetter(categoryName)}</span>
         <div className={styles.servicesContainer}>
           {filteredBusinesses.length > 0 ? (
-            filteredBusinesses.map((item) => (
-              <BusinessCard
-                key={item._id}
-                id={item._id}
-                name={item.name}
-                about={item.about}
-                address={item.address}
-                category={item.category}
-                contactPerson={item.contactPerson}
-                email={item.email}
-                imageUrls={item.imageUrls}
-              />
-            ))
+            filteredBusinesses.map((item) => <BusinessCard key={item._id} business={item} />)
           ) : (
             <p>No services</p>
           )}

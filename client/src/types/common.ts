@@ -7,7 +7,7 @@ export interface User {
   updatedAt: string;
 }
 
-export type NewUser = Omit<User, 'id'>;
+export type NewUser = Omit<User, '_id'>;
 
 export interface UserResponse {
   status: string;
@@ -32,6 +32,18 @@ export interface Business {
   email: string;
   imageUrls: string[];
 }
+
+export interface Booking {
+  _id: string;
+  businessId: string;
+  date: string;
+  time: string;
+  userEmail: string;
+  userName: string;
+  status: 'confirmed' | 'pending' | 'cancelled';
+}
+
+export type NewBooking = Omit<Booking, '_id'>;
 
 export interface RegisterFormValues {
   name: string;

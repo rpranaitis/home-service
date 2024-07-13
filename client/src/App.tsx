@@ -5,6 +5,7 @@ import Services from './pages/Services/Services';
 import Booking from './pages/Booking/Booking';
 import AboutUs from './pages/AboutUs/AboutUs';
 import SearchCategory from './pages/SearchCategory/SearchCategory';
+import BusinessDetails from './pages/BusinessDetails/BusinessDetails';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.SEARCH_CATEGORY,
         element: <SearchCategory />,
+      },
+      {
+        path: ROUTES.BUSINESS_DETAILS,
+        element: <BusinessDetails />,
       },
     ],
   },

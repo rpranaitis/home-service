@@ -6,4 +6,5 @@ export const ROUTES = {
   REGISTER: '/register',
   BOOKING: '/booking',
   SEARCH_CATEGORY: '/search/:category',
+  BUSINESS_DETAILS: '/details/:id',
 };

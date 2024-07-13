@@ -4,5 +4,5 @@ import { Category } from '../types/common';
 export const fetchCategories = async (): Promise<Category[]> => {
   const response = await axiosInstance.get('/categories');
 
-  return await response.data;
+  return response.data;
 };

@@ -13,6 +13,7 @@ applet,
 object,
 iframe,
 h1,
+h2,
 h3,
 h4,
 h5,
@@ -150,4 +151,20 @@ h5 {
   font-size: 16px;
   font-weight: 500;
   color: rgb(156, 156, 156);
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.Mui-selected {
+  background-color: #8561f1 !important;
+}
+
+.MuiButtonBase-root.MuiChip-root.MuiChip-outlined:hover,
+.MuiButtonBase-root.MuiChip-root.MuiChip-outlined:focus,
+.MuiButtonBase-root.MuiPickersDay-root:hover,
+.MuiButtonBase-root.MuiPickersDay-root:focus {
+  background-color: rgb(133 97 241 / 10%);
+}
+
+.MuiButtonBase-root.MuiChip-root.MuiChip-filled {
+  background-color: #8561f1;
+  color: white;
 }

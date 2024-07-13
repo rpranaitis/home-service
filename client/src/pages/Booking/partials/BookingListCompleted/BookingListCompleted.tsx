@@ -8,7 +8,7 @@ const BookingListCompleted = () => {
       <div className={styles.container}>
         <div className={styles.card}>
           <div>
-            <img src={Logo} alt="NoPhoto" />
+            <img src={NoPhoto} alt="NoPhoto" />
           </div>
           <div>Details</div>
         </div>
@@ -16,7 +16,7 @@ const BookingListCompleted = () => {
       <div className={styles.container}>
         <div className={styles.card}>
           <div>
-            <img src={Logo} alt="NoPhoto" />
+            <img src={NoPhoto} alt="NoPhoto" />
           </div>
           <div>Details</div>
         </div>
