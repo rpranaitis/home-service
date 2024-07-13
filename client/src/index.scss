@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
@@ -121,7 +121,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -150,5 +150,19 @@ h1 {
 h5 {
   font-size: 16px;
   font-weight: 500;
-  color: rgb(156, 156, 156)
+  color: rgb(156, 156, 156);
+}
+
+.MuiButtonBase-root.MuiPickersDay-root.Mui-selected {
+  background-color: #8561f1 !important;
+}
+
+.MuiButtonBase-root.MuiChip-root.MuiChip-outlined:hover,
+.MuiButtonBase-root.MuiPickersDay-root:hover {
+  background-color: rgb(133 97 241 / 10%);
+}
+
+.MuiButtonBase-root.MuiChip-root.MuiChip-filled {
+  background-color: #8561f1;
+  color: white;
 }
