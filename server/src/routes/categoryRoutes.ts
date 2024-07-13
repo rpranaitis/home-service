@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     const categories = await Category.find();
     res.json(categories);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching categories', error: err });
+    res.status(500).json({ message: 'Error fetching categories.', error: err });
   }
 });
 
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     res.status(201).json(newCategory);
   } catch (err) {
     res.status(400).json({
-      message: 'Error creating booking',
+      message: 'Error creating booking.',
       error: (err as Error)?.message ?? err,
     });
   }

@@ -36,7 +36,7 @@ const BusinessDetails = () => {
   return (
     <>
       <SwipeableDrawer anchor="right" open={showDrawer} onClose={() => setShowDrawer(false)} onOpen={() => setShowDrawer(true)}>
-        <BookingView showDrawer={showDrawer} />
+        <BookingView business={businessData} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
       </SwipeableDrawer>
       <div className={styles.container}>
         <div className={styles.topBlock}>

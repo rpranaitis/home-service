@@ -4,21 +4,53 @@ import Button from '../Button/Button';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
-import { FC, useEffect, useState } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { Box, Chip } from '@mui/material';
 import { FaCheckCircle } from 'react-icons/fa';
+import { Booking, Business, NewBooking } from '../../types/common';
+import { useUserContext } from '../../context/UserContext';
+import { bookService } from '../../api/booking';
 
 interface BookingViewProps {
+  business: Business;
   showDrawer: boolean;
+  setShowDrawer: Dispatch<SetStateAction<boolean>>;
 }
 
-const BookingView: FC<BookingViewProps> = ({ showDrawer }) => {
+const BookingView: FC<BookingViewProps> = ({ business, showDrawer, setShowDrawer }) => {
   const [date, setDate] = useState<Dayjs | null>(dayjs());
   const [time, setTime] = useState<Dayjs | null>(dayjs());
+
+  const { user } = useUserContext();
 
   const handleChangeDate = (newDate: Dayjs) => {
     setDate(newDate);
     setTime(null);
+  };
+
+  const bookAnService = async () => {
+    if (date && time) {
+      if (user) {
+        const data: NewBooking = {
+          businessId: business._id,
+          date: date.format('YYYY-MM-DD'),
+          time: time.format('HH:mm'),
+          userEmail: user.email,
+          userName: user.name,
+          status: 'pending',
+        };
+
+        try {
+          const response: Booking = await bookService(data);
+          alert('Service was booked successfully!');
+          setShowDrawer(false);
+        } catch (error: any) {
+          alert(error.response.data.message ?? 'An unexpected error occurred.');
+        }
+      }
+    } else {
+      alert('Please pick the date and time slot!');
+    }
   };
 
   useEffect(() => {
@@ -69,7 +101,7 @@ const BookingView: FC<BookingViewProps> = ({ showDrawer }) => {
           ))}
         </Box>
       </div>
-      <Button className={styles.bookButton}>
+      <Button onClick={bookAnService} className={styles.bookButton}>
         <FaCheckCircle />
         Book an Service
       </Button>

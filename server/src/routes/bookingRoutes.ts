@@ -11,7 +11,7 @@ router.post('/', authMiddleware, async (req, res) => {
     res.status(201).json(newBooking);
   } catch (err) {
     res.status(400).json({
-      message: 'Error creating booking',
+      message: 'Error creating booking.',
       error: (err as Error)?.message ?? err,
     });
   }
@@ -22,7 +22,7 @@ router.get('/', authMiddleware, async (req, res) => {
     const bookings = await Booking.find();
     res.json(bookings);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching bookings for the user', error: err });
+    res.status(500).json({ message: 'Error fetching bookings for the user.', error: err });
   }
 });
 
@@ -31,7 +31,7 @@ router.get('/user/:email', authMiddleware, async (req, res) => {
     const userBookings = await Booking.find({ userEmail: req.params.email });
     res.json(userBookings);
   } catch (err) {
-    res.status(500).json({ message: 'Error fetching bookings for the user', error: err });
+    res.status(500).json({ message: 'Error fetching bookings for the user.', error: err });
   }
 });
 
