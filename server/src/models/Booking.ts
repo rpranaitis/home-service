@@ -1,6 +1,6 @@
-import mongoose, { Types } from 'mongoose';
+import mongoose, { Types, Document } from 'mongoose';
 
-interface IBooking {
+interface IBooking extends Document {
   businessId: Types.ObjectId;
   date: Date;
   time: string;
@@ -9,42 +9,55 @@ interface IBooking {
   status: 'confirmed' | 'pending' | 'cancelled';
 }
 
-const bookingSchema = new mongoose.Schema<IBooking>({
-  businessId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
-  date: {
-    type: Date,
-    required: [true, 'field is required. e.g. 2022-04-28'],
-  },
-  time: {
-    type: String,
-    required: [true, 'field is required. e.g. 14:00'],
-  },
-  userEmail: {
-    type: String,
-    required: [true, 'field is required.'],
-    validate: {
-      validator: function (email: string) {
-        return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
+const bookingSchema = new mongoose.Schema<IBooking>(
+  {
+    businessId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Business',
+      required: true,
+    },
+    date: {
+      type: Date,
+      required: [true, 'Date field is required. e.g. 2022-04-28'],
+    },
+    time: {
+      type: String,
+      required: [true, 'Time field is required. e.g. 14:00'],
+    },
+    userEmail: {
+      type: String,
+      required: [true, 'User email field is required.'],
+      validate: {
+        validator: function (email: string) {
+          return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
+        },
+        message: (props: { value: string }) => `${props.value} is not a valid email!`,
       },
-      message: (props: { value: string }) => `${props.value} is not a valid email!`,
+    },
+    userName: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: String,
+      required: [true, 'Booking status is required.'],
+      enum: {
+        values: ['confirmed', 'pending', 'cancelled'],
+        message: '{VALUE} is not supported',
+      },
     },
   },
-  userName: {
-    type: String,
-    required: true,
-  },
-  status: {
-    type: String,
-    required: [true, 'Booking status is required.'],
-    enum: {
-      values: ['confirmed', 'pending', 'cancelled'],
-      message: '{VALUE} is not supported',
+  {
+    toJSON: {
+      transform: function (_doc, ret) {
+        ret.business = ret.businessId;
+        delete ret.businessId;
+
+        return ret;
+      },
     },
   },
-});
+);
 
 const Booking = mongoose.model<IBooking>('Booking', bookingSchema);
 

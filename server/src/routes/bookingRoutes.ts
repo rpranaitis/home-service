@@ -28,7 +28,7 @@ router.get('/', authMiddleware, async (req, res) => {
 
 router.get('/user/:email', authMiddleware, async (req, res) => {
   try {
-    const userBookings = await Booking.find({ userEmail: req.params.email });
+    const userBookings = await Booking.find({ userEmail: req.params.email }).populate('businessId').exec();
     res.json(userBookings);
   } catch (err) {
     res.status(500).json({ message: 'Error fetching bookings for the user.', error: err });
