@@ -2,9 +2,9 @@ import RoundedButton from '../RoundedButton/RoundedButton';
 import RoundedInput from '../RoundedInput/RoundedInput';
 import styles from './SearchBar.module.scss';
 import { CiSearch } from 'react-icons/ci';
-import { FC, HTMLAttributes, useState } from 'react';
+import { FC, useState } from 'react';
 
-interface SearchBarProps extends HTMLAttributes<HTMLDivElement> {
+interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 

@@ -1,10 +1,10 @@
 import SearchBar from '../SearchBar/SearchBar';
 import styles from './Hero.module.scss';
-import { FC, HTMLAttributes } from 'react';
+import { FC } from 'react';
 import { Business } from '../../types/common';
 import { searchBusinesses } from '../../api/business';
 
-interface HeroProps extends HTMLAttributes<HTMLDivElement> {
+interface HeroProps {
   setSearchResults: (businesses: Business[]) => void;
 }
 

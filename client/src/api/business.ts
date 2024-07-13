@@ -15,7 +15,7 @@ export const fetchBusiness = async ({ queryKey }: { queryKey: [string, string] }
 };
 
 export const searchBusinesses = async (query: string): Promise<Business[]> => {
-  const response = await axiosInstance.get(`/businesses/search/${query}`);
+  const response = await axiosInstance.get(`/businesses/search?q=${query}`);
 
   return response.data;
 };

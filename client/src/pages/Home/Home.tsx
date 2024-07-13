@@ -14,7 +14,7 @@ const Home = () => {
       {searchResults.length > 0 ? (
         <div className={styles.businessContainer}>
           {searchResults.map((item) => (
-            <BusinessCard business={item} />
+            <BusinessCard key={item._id} business={item} />
           ))}
         </div>
       ) : (

@@ -39,6 +39,22 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 });
 
+router.get('/search', async (req, res) => {
+  try {
+    const query = req.query.q;
+
+    if (!query) {
+      return res.status(400).json({ message: 'Query parameter "q" is required.' });
+    }
+
+    const businesses = await Business.find({ name: { $regex: query, $options: 'i' } });
+
+    res.json(businesses);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching businesses.', error: err });
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const business = await Business.findById(req.params.id);
@@ -50,17 +66,6 @@ router.get('/:id', async (req, res) => {
     }
   } catch (err) {
     res.status(500).json({ message: 'Error fetching business.', error: err });
-  }
-});
-
-router.get('/search/:query', async (req, res) => {
-  try {
-    const query = req.params.query;
-    const businesses = await Business.find({ name: { $regex: query, $options: 'i' } });
-
-    res.json(businesses);
-  } catch (err) {
-    res.status(500).json({ message: 'Error fetching businesses.', error: err });
   }
 });
 
