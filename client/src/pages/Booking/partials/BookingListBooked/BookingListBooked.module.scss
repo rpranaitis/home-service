@@ -33,6 +33,12 @@
         height: 200px;
         width: 40%;
         background-color: lightcyan;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
       }
       div:nth-child(2) {
         height: 200px;
