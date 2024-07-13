@@ -158,7 +158,9 @@ h5 {
 }
 
 .MuiButtonBase-root.MuiChip-root.MuiChip-outlined:hover,
-.MuiButtonBase-root.MuiPickersDay-root:hover {
+.MuiButtonBase-root.MuiChip-root.MuiChip-outlined:focus,
+.MuiButtonBase-root.MuiPickersDay-root:hover,
+.MuiButtonBase-root.MuiPickersDay-root:focus {
   background-color: rgb(133 97 241 / 10%);
 }
 
