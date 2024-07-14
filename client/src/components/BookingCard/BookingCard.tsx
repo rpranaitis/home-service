@@ -34,10 +34,13 @@ const BookingCard: FC<BookingCardProps> = ({ booking }) => {
           </div>
           <div>
             <CalendarMonthOutlinedIcon style={{ marginRight: '10px' }} />
-            {formatDate(booking.date)}
+            <span style={{ marginRight: '5px' }}>Service on:</span>
+            <span>{formatDate(booking.date)}</span>
           </div>
           <div>
-            <AccessTimeOutlinedIcon style={{ marginRight: '10px' }} /> {booking.time}
+            <AccessTimeOutlinedIcon style={{ marginRight: '10px' }} />
+            <span style={{ marginRight: '5px' }}>Service on:</span>
+            <span>{booking.time}</span>
           </div>
         </div>
       </div>

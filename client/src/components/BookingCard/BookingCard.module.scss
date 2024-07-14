@@ -17,6 +17,10 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.02);
       cursor: pointer;
+
+      > div:nth-child(2) > div:nth-child(4) > span:last-child {
+        background-color: #8561f1;
+      }
     }
 
     > div:first-child {
@@ -50,6 +54,20 @@
 
       > div:first-child {
         font-weight: bold;
+      }
+
+      > div:nth-child(2),
+      > div:nth-child(3) {
+        color: #8056eb;
+      }
+
+      > div:nth-child(4),
+      > div:nth-child(5) {
+        color: #8056eb;
+        > span:last-child {
+          color: black;
+          font-weight: bold;
+        }
       }
     }
   }
