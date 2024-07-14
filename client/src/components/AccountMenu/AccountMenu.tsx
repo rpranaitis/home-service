@@ -1,5 +1,6 @@
 import React, { useState, MouseEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/router/constants';
 import { useUserContext } from '../../context/UserContext';
 import { Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip, Avatar } from '@mui/material';
 import { Settings, Logout } from '@mui/icons-material';
@@ -8,6 +9,13 @@ import AvatarNative from '../Avatar/Avatar';
 interface AccountMenuProps {
   user: { email: string };
 }
+
+const links = [
+  {
+    path: ROUTES.BOOKING,
+    title: 'My Booking',
+  },
+];
 
 const AccountMenu: React.FC<AccountMenuProps> = ({ user }) => {
   const navigate = useNavigate();
@@ -84,11 +92,13 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ user }) => {
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          My Booking
+        <MenuItem>
+          <NavLink to={ROUTES.BOOKING} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            My Booking
+          </NavLink>
         </MenuItem>
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
