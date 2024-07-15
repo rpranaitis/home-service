@@ -27,10 +27,11 @@ const BookingCard: FC<BookingCardProps> = ({ booking }) => {
         <div>
           <div>{booking.business.name}</div>
           <div>
-            <PermIdentityIcon style={{ marginRight: '10px' }} /> {booking.business.contactPerson}
+            <PermIdentityIcon style={{ marginRight: '10px' }} />
+            {booking.business.contactPerson}
           </div>
           <div>
-            <RoomOutlinedIcon style={{ marginRight: '10px' }} /> {booking.business.address}
+            <RoomOutlinedIcon style={{ marginRight: '10px' }} /> <span> {booking.business.address}</span>
           </div>
           <div>
             <CalendarMonthOutlinedIcon style={{ marginRight: '10px' }} />
