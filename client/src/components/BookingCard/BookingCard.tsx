@@ -25,7 +25,7 @@ const BookingCard: FC<BookingCardProps> = ({ booking }) => {
           <img src={booking.business.imageUrls[0] || NoImage} alt="NoPhoto" />
         </div>
         <div>
-          <div>{booking.business.name}</div>
+          <div style={{ paddingBottom: '5px' }}>{booking.business.name}</div>
           <div>
             <PermIdentityIcon style={{ marginRight: '10px' }} />
             {booking.business.contactPerson}

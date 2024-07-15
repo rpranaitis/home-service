@@ -1,3 +1,5 @@
+import styles from './AccountMenu.module.scss';
+
 import React, { useState, MouseEvent } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/router/constants';
@@ -93,7 +95,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ user }) => {
         </MenuItem>
         <Divider />
         <MenuItem>
-          <NavLink to={ROUTES.BOOKING} style={{ textDecoration: 'none', color: 'inherit' }}>
+          <NavLink className={styles.link} to={ROUTES.BOOKING} style={{ textDecoration: 'none', color: 'inherit' }}>
             <ListItemIcon>
               <CalendarMonthOutlined fontSize="small" />
             </ListItemIcon>

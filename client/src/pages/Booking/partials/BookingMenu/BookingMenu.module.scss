@@ -3,6 +3,7 @@
   align-content: center;
   width: 100%;
   margin-bottom: 1rem;
+
   .container {
     display: flex;
     align-items: center;
@@ -14,12 +15,22 @@
     background-color: #f0f0f0;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
-    div {
+
+    .tab {
       padding: 15px 25px;
       border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      color: #666;
+      background-color: #f0f0f0;
+
       &:hover {
         background-color: #ffffff;
         cursor: pointer;
+      }
+
+      &.active {
+        color: #fff;
+        background-color: $primary-color;
       }
     }
   }

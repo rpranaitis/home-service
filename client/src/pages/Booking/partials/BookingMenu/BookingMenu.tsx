@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './BookingMenu.module.scss';
 
 interface BookingMenuProps {
@@ -6,11 +6,22 @@ interface BookingMenuProps {
 }
 
 const BookingMenu: React.FC<BookingMenuProps> = ({ onTabChange }) => {
+  const [activeTab, setActiveTab] = useState<string>('booked');
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    onTabChange(tab);
+  };
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <div onClick={() => onTabChange('booked')}>Booked</div>
-        <div onClick={() => onTabChange('completed')}>Completed</div>
+        <div className={`${styles.tab} ${activeTab === 'booked' ? styles.active : ''}`} onClick={() => handleTabChange('booked')}>
+          Booked
+        </div>
+        <div className={`${styles.tab} ${activeTab === 'completed' ? styles.active : ''}`} onClick={() => handleTabChange('completed')}>
+          Completed
+        </div>
       </div>
     </section>
   );
