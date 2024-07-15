@@ -6,7 +6,7 @@ interface IBooking extends Document {
   time: string;
   userEmail: string;
   userName: string;
-  status: 'confirmed' | 'pending' | 'cancelled';
+  status: 'confirmed' | 'pending' | 'cancelled' | 'completed';
 }
 
 const bookingSchema = new mongoose.Schema<IBooking>(
@@ -42,7 +42,7 @@ const bookingSchema = new mongoose.Schema<IBooking>(
       type: String,
       required: [true, 'Booking status is required.'],
       enum: {
-        values: ['confirmed', 'pending', 'cancelled'],
+        values: ['confirmed', 'pending', 'cancelled', 'completed'],
         message: '{VALUE} is not supported',
       },
     },
