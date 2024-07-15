@@ -29,7 +29,6 @@
       justify-content: center;
       max-width: 250px;
       flex: 1 1 250px;
-      display: flex;
       flex-direction: column;
       justify-content: space-between;
       border-radius: 10px;
@@ -40,6 +39,7 @@
         border-radius: 10px;
       }
     }
+
     > div:nth-child(2) {
       display: flex;
       flex-direction: column;
@@ -83,6 +83,55 @@
         > span:last-child {
           color: black;
           font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    font-size: 0.9rem;
+    .card {
+      min-width: 440px;
+
+      > div:first-child {
+        img {
+          width: 100%;
+          max-width: 210px;
+          height: auto;
+          border-radius: 10px;
+        }
+      }
+
+      > div:nth-child(2) {
+        max-width: 220px;
+        > div {
+          padding: 3px 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1120px) {
+  .container {
+    font-size: 0.8rem;
+    .card {
+      min-width: 250px;
+
+      > div:first-child {
+        max-width: 220px;
+      }
+
+      > div:nth-child(2) {
+        max-width: 220px;
+        > div:nth-child(2) {
+          max-width: 170px;
+
+          > div {
+            padding: unset;
+          }
         }
       }
     }
