@@ -34,13 +34,14 @@ export interface Business {
 }
 
 export interface Booking {
+  [x: string]: any;
   _id: string;
   businessId: string;
   date: string;
   time: string;
   userEmail: string;
   userName: string;
-  status: 'confirmed' | 'pending' | 'cancelled';
+  status: 'confirmed' | 'pending' | 'cancelled' | 'completed';
 }
 
 export type NewBooking = Omit<Booking, '_id'>;

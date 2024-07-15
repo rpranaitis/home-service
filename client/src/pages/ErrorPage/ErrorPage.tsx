@@ -1,7 +1,7 @@
 import styles from './ErrorPage.module.scss';
-import Button from '../../components/Button/Button';
+import Button from '@/components/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
+import { ROUTES } from '@/router/constants';
 
 const ErrorPage = () => {
   const navigate = useNavigate();

@@ -1,13 +1,23 @@
+import styles from './AccountMenu.module.scss';
+
 import React, { useState, MouseEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/router/constants';
 import { useUserContext } from '../../context/UserContext';
 import { Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip, Avatar } from '@mui/material';
-import { Settings, Logout } from '@mui/icons-material';
+import { CalendarMonthOutlined, Logout } from '@mui/icons-material';
 import AvatarNative from '../Avatar/Avatar';
 
 interface AccountMenuProps {
   user: { email: string };
 }
+
+const links = [
+  {
+    path: ROUTES.BOOKING,
+    title: 'My Booking',
+  },
+];
 
 const AccountMenu: React.FC<AccountMenuProps> = ({ user }) => {
   const navigate = useNavigate();
@@ -81,14 +91,16 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ user }) => {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar /> My account
+          <Avatar /> My Account
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          My Booking
+        <MenuItem>
+          <NavLink className={styles.link} to={ROUTES.BOOKING} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <ListItemIcon>
+              <CalendarMonthOutlined fontSize="small" />
+            </ListItemIcon>
+            My Bookings
+          </NavLink>
         </MenuItem>
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>

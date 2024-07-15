@@ -4,6 +4,7 @@ export const ROUTES = {
   ABOUT_US: '/about-us',
   LOGIN: '/login',
   REGISTER: '/register',
+  BOOKING: '/bookings',
   SEARCH_CATEGORY: '/search/:category',
   BUSINESS_DETAILS: '/details/:id',
 };

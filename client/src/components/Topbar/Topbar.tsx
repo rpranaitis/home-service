@@ -1,10 +1,9 @@
-import React from 'react';
-import Logo from '../../assets/logo.svg';
+import Logo from '@/assets/logo.svg';
 import styles from './Topbar.module.scss';
 import Button from '../Button/Button';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
-import { useUserContext } from '../../context/UserContext';
+import { ROUTES } from '@/router/constants';
+import { useUserContext } from '@/context/UserContext';
 import AccountMenu from '../AccountMenu/AccountMenu';
 
 const links = [

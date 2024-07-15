@@ -1,12 +1,12 @@
 import styles from './SearchCategory.module.scss';
-import CategoryButton from '../../components/CategoryButton/CategoryButton';
-import BusinessCard from '../../components/BusinessCard/BusinessCard';
+import CategoryButton from '@/components/CategoryButton/CategoryButton';
+import BusinessCard from '@/components/BusinessCard/BusinessCard';
 import { useParams, generatePath, Link } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
-import { capitalizeFirstLetter } from '../../utils/strings';
-import { Business, Category } from '../../types/common';
-import { useBusinesses } from '../../hooks/business';
-import { useCategories } from '../../hooks/category';
+import { ROUTES } from '@/router/constants';
+import { capitalizeFirstLetter } from '@/utils/strings';
+import { Business, Category } from '@/types/common';
+import { useBusinesses } from '@/hooks/business';
+import { useCategories } from '@/hooks/category';
 
 const SearchCategory = () => {
   const { category } = useParams<{ category: string }>();

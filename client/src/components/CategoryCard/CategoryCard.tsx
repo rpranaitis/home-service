@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import styles from './CategoryCard.module.scss';
-import { capitalizeFirstLetter } from '../../utils/strings';
+import { capitalizeFirstLetter } from '@/utils/strings';
 
 interface CategoryCardProps extends HTMLAttributes<HTMLDivElement> {
   name: string;

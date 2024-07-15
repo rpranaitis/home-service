@@ -1,5 +1,5 @@
-import Hero from '../../components/Hero/Hero';
-import Categories from '../../components/Categories/Categories';
+import Hero from '@/components/Hero/Hero';
+import Categories from '@/components/Categories/Categories';
 import styles from './Home.module.scss';
 import { useState } from 'react';
 import { Business } from '../../types/common';

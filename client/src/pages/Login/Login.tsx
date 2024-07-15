@@ -1,13 +1,13 @@
-import Button from '../../components/Button/Button';
-import InputField from '../../components/InputField/InputField';
+import Button from '@/components/Button/Button';
+import InputField from '@/components/InputField/InputField';
 import styles from './Login.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
-import { useUserContext } from '../../context/UserContext';
+import { ROUTES } from '@/router/constants';
+import { useUserContext } from '@/context/UserContext';
 import { Formik, Form } from 'formik';
-import { loginValidationSchema } from '../../schemas/auth';
-import { LoginFormValues } from '../../types/common';
-import { useLoginUser } from '../../hooks/user';
+import { loginValidationSchema } from '@/schemas/auth';
+import { LoginFormValues } from '@/types/common';
+import { useLoginUser } from '@/hooks/user';
 
 const initialValues: LoginFormValues = {
   email: '',

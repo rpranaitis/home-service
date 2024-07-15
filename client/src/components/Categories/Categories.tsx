@@ -1,9 +1,9 @@
 import CategoryCard from '../CategoryCard/CategoryCard';
 import styles from './Categories.module.scss';
 import { generatePath, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../router/constants';
-import { Category } from '../../types/common';
-import { useCategories } from '../../hooks/category';
+import { ROUTES } from '@/router/constants';
+import { Category } from '@/types/common';
+import { useCategories } from '@/hooks/category';
 
 const Categories = () => {
   const navigate = useNavigate();

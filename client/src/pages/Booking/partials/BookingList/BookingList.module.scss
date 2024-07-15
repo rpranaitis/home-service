@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1230px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.padding {
+  padding-top: 20px;
+}

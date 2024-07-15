@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import classNames from 'classnames';
 import { FC } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
-import { capitalizeFirstLetter } from '../../utils/strings';
+import { capitalizeFirstLetter } from '@/utils/strings';
 import { GoHeart, GoHeartFill } from 'react-icons/go';
 import { Business } from '../../types/common';
 import { generatePath, useNavigate } from 'react-router-dom';
