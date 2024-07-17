@@ -1,5 +1,5 @@
 import styles from './AboutUs.module.scss';
-import Team from '../../assets/team.png';
+import Team from '@/assets/team.png';
 
 const AboutUs = () => {
   return (
