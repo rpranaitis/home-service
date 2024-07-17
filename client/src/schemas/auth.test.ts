@@ -1,7 +1,7 @@
 import {loginValidationSchema} from './auth';
 import '@testing-library/jest-dom';
 
-test('should return first letter Capitalized', async () => {
+test('should be valid inputs data for validation', async () => {
 
     const validInput = {
         email: 'test@example.com',
